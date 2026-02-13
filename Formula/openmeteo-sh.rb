@@ -5,7 +5,7 @@ class OpenmeteoSh < Formula
   desc "Fast, lightweight CLI for the entire Open-Meteo API suite"
   homepage "https://github.com/lstpsche/openmeteo-sh"
   url "https://github.com/lstpsche/openmeteo-sh/archive/refs/tags/1.4.0.tar.gz"
-  sha256 "c7fbb187a77a0e2ca4d1485d64bd9bf46a80bbdf3849ed57eccc7421be68e426"
+  sha256 "1505fd88eb2f577b017ca5b4792d37d87640d6ccf2365c051738d0b224038e3c"
   license "MIT"
   head "https://github.com/lstpsche/openmeteo-sh.git", branch: "main"
 
