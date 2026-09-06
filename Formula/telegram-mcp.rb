@@ -10,28 +10,28 @@ class TelegramMcp < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.2.0/telegram-mcp-0.2.0-darwin-arm64.zip"
-      sha256 "4af976c4aba3bd4f747a4d0f06fd240d2ad5f7795e82f8f190f6b3cb7e7e9c2e"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.3.0/telegram-mcp-0.3.0-darwin-arm64.zip"
+      sha256 "f3c16885a334825c57d28f879915db18f43678e1ec194d66a7b464d107a6981b"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.2.0/telegram-mcp-0.2.0-darwin-amd64.zip"
-      sha256 "232ac218bb4d38a54127a210561c5167ec9dbd717fd75e351095c0bdd153f220"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.3.0/telegram-mcp-0.3.0-darwin-amd64.zip"
+      sha256 "ef88b71b846d39d94631f3e09add318f4784649ae1690031c7c56b76c2e652bd"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.2.0/telegram-mcp-0.2.0-linux-arm64.zip"
-      sha256 "12d69d437d4a8635d8c84cdd955304bd7a683ebe740f3b4bd4559fda1c6a220d"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.3.0/telegram-mcp-0.3.0-linux-arm64.zip"
+      sha256 "0e3b58e2624856b3bebbcde1e71703be3ee4d6a0d4a3c5f687fbe1dfe81634f7"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.2.0/telegram-mcp-0.2.0-linux-amd64.zip"
-      sha256 "9a42676b1f442eea74ec4a16523d3f02835c6b05308ccc8dcffec2c3fa7b07d6"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.3.0/telegram-mcp-0.3.0-linux-amd64.zip"
+      sha256 "f488803dfd925fea335d42fd451f41b0c5ffce4c2ae39b516370cb99934d21b7"
     end
   end
 
   def install
-    bin.install "telegram-mcp", "telegram-mcpctl", "telegram-mcpd"
+    bin.install "telegram-mcp", "telegram-mcpd"
     doc.install "docs"
     prefix.install "THIRD_PARTY_NOTICES.txt"
   end
@@ -39,23 +39,23 @@ class TelegramMcp < Formula
   def caveats
     <<~EOS
       Create your private installation and start interactive setup:
-        telegram-mcpctl install --version #{version} --setup
+        telegram-mcp install --version #{version} --setup
 
-      Use the relay path printed by setup or `telegram-mcpctl agent-config`
+      Use the relay path printed by setup or `telegram-mcp agent-config`
       in your MCP client. The service uses private copies outside the Cellar.
 
       After upgrading this formula, update the managed service explicitly:
-        telegram-mcpctl upgrade --version #{version}
+        telegram-mcp upgrade --version #{version}
       Reconnect your MCP client afterward. Homebrew does not manage the service
       or remove your account data when this formula is uninstalled.
     EOS
   end
 
   test do
-    %w[telegram-mcp telegram-mcpctl telegram-mcpd].each do |program|
+    %w[telegram-mcp telegram-mcpd].each do |program|
       assert_match "#{program} version=#{version}", shell_output("#{bin}/#{program} --version")
     end
-    output = shell_output("#{bin}/telegram-mcpctl install --version invalid 2>&1", 2)
+    output = shell_output("#{bin}/telegram-mcp install --version invalid 2>&1", 2)
     assert_match "use install --version X.Y.Z", output
   end
 end

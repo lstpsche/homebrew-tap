@@ -13,7 +13,7 @@ On macOS or Linux, with Apple Silicon/ARM64 or Intel/x86_64:
 
 ```sh
 brew install lstpsche/tap/telegram-mcp
-telegram-mcpctl install --version 0.2.0 --setup
+telegram-mcp install --version 0.3.0 --setup
 ```
 
 No Go installation is required. Homebrew verifies the platform archive's pinned
@@ -22,7 +22,7 @@ per-user storage, then guides account login, access, service startup and client
 connection. Credentials are entered locally through the console. Login alone
 grants no message access.
 
-Use the stable relay path printed by setup or `telegram-mcpctl agent-config`
+Use the stable relay path printed by setup or `telegram-mcp agent-config`
 in your MCP client. The running service uses private copies outside Homebrew's
 Cellar, so `brew cleanup` cannot remove its binaries. Use Telegram MCP's own
 `service` commands; this formula does not register a `brew services` service.
@@ -35,7 +35,7 @@ brew upgrade lstpsche/tap/telegram-mcp
 brew info lstpsche/tap/telegram-mcp
 ```
 
-Run the `telegram-mcpctl upgrade --version ...` command shown by `brew info`, then
+Run the `telegram-mcp upgrade --version ...` command shown by `brew info`, then
 reconnect the MCP client. Upgrading the formula alone does not replace a running
 service. Uninstalling the formula leaves the private service and account data
 intact; stop/uninstall the service explicitly with its private control program

@@ -40,6 +40,6 @@ jobs:
           fixture=$(cd "$fixture" && pwd -P)
           trap 'rm -rf -- "$fixture"' EXIT
           HOME="$fixture" XDG_CONFIG_HOME="$fixture/config" XDG_CACHE_HOME="$fixture/cache" \
-            telegram-mcpctl install --version "$version"
+            telegram-mcp install --version "$version"
           HOME="$fixture" XDG_CONFIG_HOME="$fixture/config" XDG_CACHE_HOME="$fixture/cache" \
-            telegram-mcpctl install --version "$version"
+            telegram-mcp install --version "$version"
