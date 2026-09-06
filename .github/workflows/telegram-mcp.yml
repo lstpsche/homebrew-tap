@@ -1,0 +1,45 @@
+name: Telegram MCP formula
+on:
+  push:
+    paths: [Formula/telegram-mcp.rb, .github/workflows/telegram-mcp.yml]
+  pull_request:
+    paths: [Formula/telegram-mcp.rb, .github/workflows/telegram-mcp.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: telegram-mcp-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  formula:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_ANALYTICS: 1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: Homebrew/actions/setup-homebrew@f8d4222eb633e65c2a0157383cf80861fc7fae7f
+      - name: Install and test the checked-out formula
+        shell: bash
+        run: |
+          brew style lstpsche/tap/telegram-mcp
+          brew audit --strict lstpsche/tap/telegram-mcp
+          brew install lstpsche/tap/telegram-mcp
+          brew test lstpsche/tap/telegram-mcp
+      - name: Verify private installation without account setup
+        shell: bash
+        run: |
+          version=$(brew info --json=v2 lstpsche/tap/telegram-mcp | python3 -c 'import json,sys; print(json.load(sys.stdin)["formulae"][0]["versions"]["stable"])')
+          fixture=$(mktemp -d "$RUNNER_TEMP/telegram-mcp.XXXXXXXX")
+          fixture=$(cd "$fixture" && pwd -P)
+          trap 'rm -rf -- "$fixture"' EXIT
+          HOME="$fixture" XDG_CONFIG_HOME="$fixture/config" XDG_CACHE_HOME="$fixture/cache" \
+            telegram-mcpctl install --version "$version"
+          HOME="$fixture" XDG_CONFIG_HOME="$fixture/config" XDG_CACHE_HOME="$fixture/cache" \
+            telegram-mcpctl install --version "$version"
