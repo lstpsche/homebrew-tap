@@ -13,7 +13,7 @@ On macOS or Linux, with Apple Silicon/ARM64 or Intel/x86_64:
 
 ```sh
 brew install lstpsche/tap/telegram-mcp
-telegram-mcp install --version 0.3.0 --setup
+telegram-mcp install --version 0.4.0 --setup
 ```
 
 No Go installation is required. Homebrew verifies the platform archive's pinned
