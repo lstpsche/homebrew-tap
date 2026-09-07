@@ -10,23 +10,23 @@ class TelegramMcp < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.7.0/telegram-mcp-0.7.0-darwin-arm64.zip"
-      sha256 "2219902c809755dbbdef64da7e0290b1fd614f30b0f991d43744bac350987218"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.8.0/telegram-mcp-0.8.0-darwin-arm64.zip"
+      sha256 "c283df93218c19170cf239e50f66dba0f85dc6586faf6a7646f7d60ae5b168ea"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.7.0/telegram-mcp-0.7.0-darwin-amd64.zip"
-      sha256 "db677bad24de6c6d97bcb3d8cda29a4df6517603c1a5053d1ef846ee2d0b8df7"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.8.0/telegram-mcp-0.8.0-darwin-amd64.zip"
+      sha256 "110cc048be85845349b643e7512ad076a4c872acadc704ca94c9bbf2ffb4865d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.7.0/telegram-mcp-0.7.0-linux-arm64.zip"
-      sha256 "3b9ade01aa00711bd180653c945acbab0b13806194c9ae32e9ea64a2e7a0c564"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.8.0/telegram-mcp-0.8.0-linux-arm64.zip"
+      sha256 "0838db673a825f394424e72c92df3de64292c96d47a5e301e0ea50bcee705b2f"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.7.0/telegram-mcp-0.7.0-linux-amd64.zip"
-      sha256 "94bc33be761ee32f060b781b4c70f3f29d5319a36b0746bcb8518ecb18075cbf"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v0.8.0/telegram-mcp-0.8.0-linux-amd64.zip"
+      sha256 "bc52af98ce9d7216367dd0c923b5a635b12784608e90405682212a711d7adfd7"
     end
   end
 
