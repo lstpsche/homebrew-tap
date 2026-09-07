@@ -4,6 +4,7 @@ Install command-line tools from [lstpsche](https://github.com/lstpsche).
 
 | Formula | Project |
 | --- | --- |
+| `coding-session-history-mcp` | [Coding Session History MCP](https://github.com/lstpsche/coding-session-history-mcp), read-only retrieval of local Codex history |
 | `openmeteo-sh` | [Open-Meteo CLI](https://github.com/lstpsche/openmeteo-sh) |
 | `telegram-mcp` | [Telegram MCP](https://github.com/lstpsche/telegram-mcp), an unofficial Telegram client for AI agents |
 
@@ -66,3 +67,19 @@ it does not publish formula updates automatically.
 CI runs Homebrew style/audit, installs the formula and runs its test on macOS and
 Linux. Its installation smoke uses a disposable profile without authenticating
 or starting a service. No Telegram credentials or content are used.
+
+## Coding Session History MCP
+
+```sh
+brew install lstpsche/tap/coding-session-history-mcp
+coding-session-history setup --repo /absolute/path/to/your/project
+```
+
+Homebrew installs Node and builds the native SQLite dependency. The formula is
+pinned to the public 1.1.0 release tarball and its SHA-256. Installation does not
+read history, change MCP client settings, or start a service.
+
+Setup indexes the selected project and prints MCP configuration and a refresh
+command. See the [setup guide](https://github.com/lstpsche/coding-session-history-mcp#first-run).
+Regenerate saved executable paths and restart clients after upgrades.
+Uninstalling this formula preserves your policy and derived index.
