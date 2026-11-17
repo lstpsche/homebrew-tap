@@ -14,7 +14,7 @@ On macOS or Linux, with Apple Silicon/ARM64 or Intel/x86_64:
 
 ```sh
 brew install lstpsche/tap/telegram-mcp
-telegram-mcp install --version 0.4.0 --setup
+telegram-mcp install --version 1.5.0 --setup
 ```
 
 No Go installation is required. Homebrew verifies the platform archive's pinned
@@ -36,8 +36,9 @@ brew upgrade lstpsche/tap/telegram-mcp
 brew info lstpsche/tap/telegram-mcp
 ```
 
-Run the `telegram-mcp upgrade --version ...` command shown by `brew info`, then
-reconnect the MCP client. Upgrading the formula alone does not replace a running
+Run the absolute `telegram-mcp` path shown by `brew info` with its
+`upgrade --version ...` arguments, then reconnect the MCP client.
+Upgrading the formula alone does not replace a running
 service. Uninstalling the formula leaves the private service and account data
 intact; stop/uninstall the service explicitly with its private control program
 before removing Homebrew commands if that is your intent. See the project's

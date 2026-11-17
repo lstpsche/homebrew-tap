@@ -10,23 +10,23 @@ class TelegramMcp < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.4.0/telegram-mcp-1.4.0-darwin-arm64.zip"
-      sha256 "9e70050b482ec5c18be391b6b76923ef46983aede058165b36a42f293f7309e0"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.5.0/telegram-mcp-1.5.0-darwin-arm64.zip"
+      sha256 "c64ffd8a2206985f043c34f183dcdcd72d58e580f3744a7ba2968be43aae5ee7"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.4.0/telegram-mcp-1.4.0-darwin-amd64.zip"
-      sha256 "aca14228de93e5474abefd5b68f09d1a20a268ca6caa3e082e799c504eddc405"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.5.0/telegram-mcp-1.5.0-darwin-amd64.zip"
+      sha256 "176b593c9f80b1d74b0b823ffbfc3e5886993a45387fa5234d941deb398eb7ca"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.4.0/telegram-mcp-1.4.0-linux-arm64.zip"
-      sha256 "45ebb79a767c72d8cdabd87e381047d64998a7e29fc977b943ce058ccb21b1c0"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.5.0/telegram-mcp-1.5.0-linux-arm64.zip"
+      sha256 "a67ed149a15de23f1a7247664100f567f93a69bf9534381e0ea9ac0811da93ef"
     end
     on_intel do
-      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.4.0/telegram-mcp-1.4.0-linux-amd64.zip"
-      sha256 "1d93b13e0371727e8287e8c68403d295cba499ac197bd1cfbc058b74730f84cf"
+      url "https://github.com/lstpsche/telegram-mcp/releases/download/v1.5.0/telegram-mcp-1.5.0-linux-amd64.zip"
+      sha256 "aed916c1918a0fe26f9d51aab807308644c20799d04bba3486458955f92383dc"
     end
   end
 
@@ -45,7 +45,7 @@ class TelegramMcp < Formula
       in your MCP client. The service uses private copies outside the Cellar.
 
       After upgrading this formula, update the managed service explicitly:
-        telegram-mcp upgrade --version #{version}
+        "#{opt_bin}/telegram-mcp" upgrade --version #{version}
       Reconnect your MCP client afterward. Homebrew does not manage the service
       or remove your account data when this formula is uninstalled.
     EOS
